@@ -9,6 +9,7 @@ import { StyleBindingComponent } from './components/style-binding/style-binding.
 import { EventBindingComponent } from './components/event-binding/event-binding.component';
 import { TemRefVairComponent } from './components/tem-ref-vair/tem-ref-vair.component';
 import { TwoWayBindingComponent } from './components/two-way-binding/two-way-binding.component';
+import { NgIfDirectiveComponent } from './components/ng-if-directive/ng-if-directive.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TwoWayBindingComponent } from './components/two-way-binding/two-way-bin
     StyleBindingComponent,
     EventBindingComponent,
     TemRefVairComponent,
-    TwoWayBindingComponent
+    TwoWayBindingComponent,
+    NgIfDirectiveComponent
   ],
   imports: [
     BrowserModule,
