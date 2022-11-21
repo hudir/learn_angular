@@ -1,0 +1,17 @@
+"use strict";
+let lname;
+lname = "hudir";
+let newname = lname.toUpperCase();
+let isValid = true;
+let empList;
+empList = ["sa", "so", "sla"];
+let numList;
+numList = [1, 2, 3, 4, 5];
+let result = numList.filter(n => n > 2);
+let num = numList.find(x => x == 2);
+let emp = empList.find(p => p == "sa");
+console.log(result);
+console.log(num);
+console.log(emp);
+let sum = numList.reduce((acc, x) => acc + x);
+console.log(sum);
