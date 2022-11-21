@@ -60,3 +60,39 @@ public myId = "testId";
   <h1 [class.text-danger]="hasError">{{"Welcome " + name}}</h1>
   public hasError = true
  ```
+
+ ### class binding
+ modify classes based on some boolean values
+ ```css
+  styles: [`
+  div {
+    color: red;
+  }
+  .text-success {
+    color: green;
+  }
+  .text-danger {
+    color: red;
+  }
+  .text-special {
+    font-style: italic;
+  }
+  `]
+ ```
+ ```html
+   <h1 [ngClass]="messageClasses">{{"Welcome " + name + " messageClasses"}}</h1>
+ ```
+```ts
+ // Class Binding
+  public successClass = "text-success"
+  public hasError = true
+
+  public isSpecial = true;
+  public messageClasses = {
+    "text-success": !this.hasError,
+    "text-danger": this.hasError,
+    "text-special": this.isSpecial
+  }
+````
+
+### style binding

@@ -11,6 +11,7 @@ import { Component } from '@angular/core';
              <h1 [class]="successClass">{{"Welcome " + name}}</h1>
              <h1 class="text-special" [class]="successClass" >{{"Welcome " + name}}</h1>
              <h1 [class.text-danger]="hasError">{{"Welcome " + name}}</h1>
+             <h1 [ngClass]="messageClasses">{{"Welcome " + name + " messageClasses"}}</h1>
 
 
              <h2>{{name.length}}</h2>
@@ -45,6 +46,13 @@ export class TestComponent {
   // Class Binding
   public successClass = "text-success"
   public hasError = true
+
+  public isSpecial = true;
+  public messageClasses = {
+    "text-success": !this.hasError,
+    "text-danger": this.hasError,
+    "text-special": this.isSpecial
+  }
 
   greetUser(): string{
     return "Hello " + this.name;
