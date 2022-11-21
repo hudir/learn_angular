@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { TestComponent } from './test/test.component';
 import { StyleBindingComponent } from './components/style-binding/style-binding.component';
 import { EventBindingComponent } from './components/event-binding/event-binding.component';
+import { TemRefVairComponent } from './components/tem-ref-vair/tem-ref-vair.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
     StyleBindingComponent,
-    EventBindingComponent
+    EventBindingComponent,
+    TemRefVairComponent
   ],
   imports: [
     BrowserModule,
