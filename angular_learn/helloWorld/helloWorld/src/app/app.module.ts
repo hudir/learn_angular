@@ -10,6 +10,7 @@ import { EventBindingComponent } from './components/event-binding/event-binding.
 import { TemRefVairComponent } from './components/tem-ref-vair/tem-ref-vair.component';
 import { TwoWayBindingComponent } from './components/two-way-binding/two-way-binding.component';
 import { NgIfDirectiveComponent } from './components/ng-if-directive/ng-if-directive.component';
+import { NgSwitchDirectiveComponent } from './components/ng-switch-directive/ng-switch-directive.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NgIfDirectiveComponent } from './components/ng-if-directive/ng-if-direc
     EventBindingComponent,
     TemRefVairComponent,
     TwoWayBindingComponent,
-    NgIfDirectiveComponent
+    NgIfDirectiveComponent,
+    NgSwitchDirectiveComponent
   ],
   imports: [
     BrowserModule,

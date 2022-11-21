@@ -149,5 +149,17 @@ if then else
     </ng-template>
   `,
 ```
--ngSwitch
+- ngSwitch
+```ts
+`
+    <div [ngSwitch]="color">
+      <div *ngSwitchCase="'red'">You picked red color</div>
+      <div *ngSwitchCase="'blue'">You picked blue color</div>
+      <div *ngSwitchCase="'green'">You picked green color</div>
+      <div *ngSwitchDefault>Pick again</div>
+    </div>
+  `
+//   in the class 
+  public color = "black";
+```
 -ngFor
