@@ -11,6 +11,7 @@ import { TemRefVairComponent } from './components/tem-ref-vair/tem-ref-vair.comp
 import { TwoWayBindingComponent } from './components/two-way-binding/two-way-binding.component';
 import { NgIfDirectiveComponent } from './components/ng-if-directive/ng-if-directive.component';
 import { NgSwitchDirectiveComponent } from './components/ng-switch-directive/ng-switch-directive.component';
+import { NgForDirectiveComponent } from './components/ng-for-directive/ng-for-directive.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NgSwitchDirectiveComponent } from './components/ng-switch-directive/ng-
     TemRefVairComponent,
     TwoWayBindingComponent,
     NgIfDirectiveComponent,
-    NgSwitchDirectiveComponent
+    NgSwitchDirectiveComponent,
+    NgForDirectiveComponent
   ],
   imports: [
     BrowserModule,
