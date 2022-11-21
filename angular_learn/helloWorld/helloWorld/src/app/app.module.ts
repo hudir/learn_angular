@@ -15,6 +15,9 @@ import { NgForDirectiveComponent } from './components/ng-for-directive/ng-for-di
 import { ComponentInteractionComponent } from './components/component-interaction/component-interaction.component';
 import { ChildComponentComponent } from './components/component-interaction/child-component/child-component.component';
 import { PipesComponent } from './components/pipes/pipes.component';
+import { ServicesComponent } from './components/services/services.component';
+import { EmployeeListComponent } from './components/services/employee-list/employee-list.component';
+import { EmployeeDetailComponent } from './components/services/employee-detail/employee-detail.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { PipesComponent } from './components/pipes/pipes.component';
     NgForDirectiveComponent,
     ComponentInteractionComponent,
     ChildComponentComponent,
-    PipesComponent
+    PipesComponent,
+    ServicesComponent,
+    EmployeeListComponent,
+    EmployeeDetailComponent
   ],
   imports: [
     BrowserModule,
