@@ -18,6 +18,7 @@ import { PipesComponent } from './components/pipes/pipes.component';
 import { ServicesComponent } from './components/services/services.component';
 import { EmployeeListComponent } from './components/services/employee-list/employee-list.component';
 import { EmployeeDetailComponent } from './components/services/employee-detail/employee-detail.component';
+import { EmployeeService } from './services/employee.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { EmployeeDetailComponent } from './components/services/employee-detail/e
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

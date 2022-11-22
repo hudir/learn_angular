@@ -162,4 +162,102 @@ if then else
 //   in the class 
   public color = "black";
 ```
--ngFor
+
+- ngFor
+
+```ts
+import { Component } from '@angular/core';
+
+@Component({
+  selector: '[app-ng-for-directive]',
+  template: `
+    <div *ngFor="let color of colors; index as i; first as f; last as l; odd as o; even as e">
+       <h2>first as f: {{f}}; index: {{i}}; color: {{color}}; last as l: {{l}}; odd as o:{{o}}; even as e {{e}}</h2>
+    </div>
+    
+  `,
+  styles: []
+})
+export class NgForDirectiveComponent {
+  public colors = ["red", "blue", "green", "yellow"]
+
+}
+```
+
+### component interaction
+
+- Sending data from parent to child: passing a variable as an attribute in the child component's html selector
+
+```
+<child-component [parentData] = "a variable" ></child-component>
+```
+
+and get it in the child component with @Input
+
+```
+class {
+    @Input('parentData') public variableName : any;
+}
+```
+
+or
+
+```
+class {
+    @Input() public parentData : any;
+}
+```
+
+- Sending data from child to parent: using EventEmitter class
+
+```
+export class ChildComponentComponent {
+
+  @Output() public childEvent = new EventEmitter()
+
+  fireEvent(){
+    this.childEvent.emit('Greeting from child component Event')
+  }
+}
+```
+
+in the parent component we have an empty variable: public message = ""
+
+```html
+<h1>
+    {{message}}
+</h1>
+
+<app-child-component (childEvent)="message=$event" [parentData]="name"></app-child-component>
+```
+in the childEvent we assign message = $event 
+
+
+### pipe data - transform data before display them. only transform date for the view, it not change value of the property in class
+
+
+### services
+
+- A class with a specific purpose
+- 1 ) Share data
+- 2 ) Implement application logig
+- 3 ) External Interaction(connect to database)
+
+Naming convention - .service.ts
+
+### Dependency Injection
+
+- Code without DI - drawbacks
+- DI as design pattern
+- DI as a framework
+
+1 ) Define the EmployeeService class
+2 ) Register with Injector
+3 ) Declare as dependency in EmpList and EmgDetail
+
+Hierarchical DI in Angular
+                    APPModule   <-- injector goes here 
+                       |
+                  APPComponent
+                  |          |
+               EmpList   EmgDetail
