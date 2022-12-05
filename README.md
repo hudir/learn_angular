@@ -1,5 +1,5 @@
 # learn_angular
-follow Angular Tutorial
+follow Angular Tutorial [https://www.youtube.com/watch?v=nGr3C3wbh9c&list=PLC3y8-rFHvwhBRAgFinJR8KHIrCdTkZcZ&index=33]
 
 ### 3 ways of use selector
 - first use as a tag
@@ -291,3 +291,16 @@ export class EmployeeService {
   }
 }
 ```
+
+
+
+
+
+# TDF (Template Driven Forms) - most code in template
+
+- Two way date binding with ngModel
+- Bulky HTML and minimal component code
+- Automatically tracks the form and form elements state and validity
+- Unit testing is a challenge
+- Readability decreases with complex forms and validations
+- Suitable for simple scenarios
