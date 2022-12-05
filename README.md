@@ -304,3 +304,9 @@ export class EmployeeService {
 - Unit testing is a challenge
 - Readability decreases with complex forms and validations
 - Suitable for simple scenarios
+
+
+       template reference variable
+```
+  <form #userForm="ngForm">
+```
