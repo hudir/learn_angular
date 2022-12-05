@@ -310,3 +310,22 @@ export class EmployeeService {
 ```
   <form #userForm="ngForm">
 ```
+
+oneWay binding =>
+[ngModel]="data.name"
+
+twoWay binding => 
+[(ngModel)]="data.name"
+
+
+### Track control state and validity
+
+State                            | Class if true  | Class if false
+
+- the control has been visited         ng-touched     ng-untouched
+- the control's value has changed       ng-dirty       ng-pristine
+- the control's value is valid          ng-valid       ng-invalid
+
+### ngModel properties
+
+untouched touched pristine dirty Valid invalid
