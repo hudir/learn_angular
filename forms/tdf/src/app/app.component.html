@@ -1,7 +1,8 @@
 <div class="container-fluid">
   <h1>Bootcamp Enrollment Form</h1>
-  <form #userForm="ngForm">
+  <form #userForm="ngForm" novalidate (ngSubmit)="onSubmit()">
 
+    <h2>Form Validation: {{ userForm.form.valid }}</h2>
     {{ userForm.value | json }}
 
     <hr />
@@ -41,7 +42,7 @@
       <input type="email" name="email" id="" class="form-control"  [(ngModel)]="userModel.email">
     </div>
 
-    <div class="form-group">
+    <div class="form-group mb-3">
       <label for="">Phone</label>
       <input type="tel" name="phone" id="" class="form-control" #phone="ngModel" pattern="^\d{10}$" [class.is-invalid]="phone.invalid && phone.touched" [(ngModel)]="userModel.phone" required>
       <!-- <small [class.d-none]="phone.valid || phone.untouched" class="text-danger">Phone number is required and must be 10 digits</small> -->
@@ -51,12 +52,13 @@
       </div>
     </div>
 
-    <div class="form-group">
-      <select (blur)="validateTopic(topic.value)" (change)="validateTopic(topic.value)" name="topic" id="" class="custom-select" [class.is-invalid]="topic.invalid && topic.touched" [(ngModel)]="userModel.topic" required #topic="ngModel">
+    <div class="form-group
+     mb-3">
+      <select (blur)="validateTopic(topic.value)" (change)="validateTopic(topic.value)" name="topic" id="" class="form-select" [class.is-invalid]="topicHasError && topic.touched" [(ngModel)]="userModel.topic" #topic="ngModel">
         <option value="default">I am interested in</option>
         <option *ngFor="let topic of topics">{{topic}}</option>
       </select>
-      <small class="text-danger" [class.d-none]="topic.valid || topic.untouched">Please choose a topic</small>
+      <small class="text-danger" [class.d-none]="!topicHasError || topic.untouched">Please choose a topic</small>
     </div>
 
     <div class="mb-3">
@@ -77,7 +79,7 @@
       <label class="form-check-label">Send me promotional offers</label>
     </div>
 
-    <button class="btn btn-primary" type="submit">Submit form</button>
+    <button [disabled]="userForm.form.invalid || topicHasError" class="btn btn-primary" type="submit">Submit form</button>
     
   </form>
 </div>
