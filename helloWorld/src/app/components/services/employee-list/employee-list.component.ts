@@ -1,4 +1,4 @@
-import { EmployeeService } from './../../../services/employee.service';
+import { EmployeeService } from '../../../services/employee.service';
 import { Component } from '@angular/core';
 
 @Component({
