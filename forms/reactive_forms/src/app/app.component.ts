@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 // import { FormControl, FormGroup } from '@angular/forms';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PasswordValidator } from './shared/password.validator';
 import { forbiddenNameValidator } from './shared/user-name.validator';
 
@@ -9,26 +9,46 @@ import { forbiddenNameValidator } from './shared/user-name.validator';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+  registrationForm: any;
 
   get userName(){
     return this.registrationForm.get('userName');
   }
-
-
+  get email(){
+    return this.registrationForm.get('email');
+  }
   constructor(private fb: FormBuilder){}
 
-  registrationForm = this.fb.group({
-    userName: ['', [Validators.required, Validators.minLength(3), forbiddenNameValidator(/password/)]],
-    password:[''],
-    confirmPassword:[''],
-    address: this.fb.group({
-      city: [''],
-      state: [''],
-      postalCode: ['']
+  ngOnInit(): void {
+    this.registrationForm = this.fb.group({
+      userName: ['', [Validators.required, Validators.minLength(3), forbiddenNameValidator(/password/)]],
+      email: [''],
+      subscribe: [''],
+      password:[''],
+      confirmPassword:[''],
+      address: this.fb.group({
+        city: [''],
+        state: [''],
+        postalCode: ['']
+      })
+    }, {validators: PasswordValidator})
+
+    this.registrationForm.get('subscribe').valueChanges.subscribe((checkedValue: any) => {
+      const email = this.registrationForm.get('email');
+
+      if (checkedValue) {
+        email.setValidators(Validators.required)
+      } else {
+        email.clearValidators()
+      }
+
+      email.updateValueAndValidity()
     })
-  }, {validators: PasswordValidator})
- 
+    
+  }
+
   // registrationForm = new FormGroup({
   //   userName: new FormControl('Hudir'),
   //   password: new FormControl(''),
