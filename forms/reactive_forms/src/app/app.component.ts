@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import { FormControl, FormGroup } from '@angular/forms';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
+import { RegistrtionService } from './registrtion.service';
 import { PasswordValidator } from './shared/password.validator';
 import { forbiddenNameValidator } from './shared/user-name.validator';
 
@@ -27,7 +28,9 @@ export class AppComponent implements OnInit {
     this.alternateEmail.push(this.fb.control(''));
   }
 
-  constructor(private fb: FormBuilder){}
+  constructor(private fb: FormBuilder
+              , private _registrtionServic : RegistrtionService         
+    ){}
 
   ngOnInit(): void {
     this.registrationForm = this.fb.group({
@@ -89,4 +92,10 @@ export class AppComponent implements OnInit {
     // })
   }
 
+  onSubmit() {
+    // console.log(this.registrationForm.value)
+    this._registrtionServic.register(this.registrationForm.value)
+    .subscribe(
+      (response: any) => console.log('Success!', response), (error: any) => console.error(error))
+  }
 }
