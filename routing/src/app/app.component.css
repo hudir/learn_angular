@@ -1,0 +1,12 @@
+nav a {
+    display: inline-block;
+    margin: 10px;
+    padding: 5px;
+    border: 1px white solid;
+    color: black;
+}
+
+nav a.active {
+    color: skyblue;
+    border-color: cyan;
+}
