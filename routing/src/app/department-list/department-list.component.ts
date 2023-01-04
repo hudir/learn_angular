@@ -24,7 +24,8 @@ export class DepartmentListComponent {
     ) { }
 
   onSelect(id:number) {
-    this.router.navigate(['/departments', id])
+    // this.router.navigate(['/departments', id])
+    this.router.navigate([id], {relativeTo: this.activatedRoute})
   }
 
   ngOnInit() {

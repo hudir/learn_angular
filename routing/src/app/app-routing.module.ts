@@ -6,10 +6,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 
 const routes: Routes = [
-  {path: "", redirectTo: '/departments', pathMatch: 'full'},
+  {path: "", redirectTo: '/department-list', pathMatch: 'full'},
   // {path: "", redirectTo: '/departments', pathMatch: 'prefix'},
-  {path: "departments", component: DepartmentListComponent},
-  {path: "departments/:id", component:DepartmentDetailComponent},
+  {path: "department-list", component: DepartmentListComponent},
+  {path: "department-list/:id", component:DepartmentDetailComponent},
   {path: "employees", component: EmployeeListComponent},
   {path: "**", component: PageNotFoundComponent} // should always be the last
 ];

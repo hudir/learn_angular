@@ -1,4 +1,4 @@
 <h3>department-list</h3>
 <ul>
-    <li *ngFor="let el of department; let i = index" [class.selected]="selectId == (i + 1)" (click)="onSelect(el.id)">{{el.id + " " + el.name}}</li>
+    <li *ngFor="let el of department; let i = index" [class.selected]="isSelected(el.id)" (click)="onSelect(el.id)">{{el.id + " " + el.name}}</li>
 </ul>

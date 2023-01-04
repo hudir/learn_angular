@@ -37,6 +37,7 @@ export class DepartmentDetailComponent {
 
   goBack() {
     let selectedId = this.departmentID ? this.departmentID : null
-    this.router.navigate(['/departments', {id: selectedId}])
+    // this.router.navigate(['/departments', {id: selectedId, text: "test"}])
+    this.router.navigate(['../', { id: selectedId}], {relativeTo: this.route})
   }
 }
