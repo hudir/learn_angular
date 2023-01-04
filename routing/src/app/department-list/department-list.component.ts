@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-department-list',
@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./department-list.component.css']
 })
 export class DepartmentListComponent {
+
+  selectId: any;
 
   department = [
     {"id":1, "name": "Angular"},
@@ -16,10 +18,24 @@ export class DepartmentListComponent {
     {"id":5, "name": "Bootstrap"},
   ]
 
-  constructor( private router: Router) { }
+  constructor( 
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+    ) { }
 
   onSelect(id:number) {
     this.router.navigate(['/departments', id])
+  }
+
+  ngOnInit() {
+    
+    this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
+      this.selectId = Number(params.get('id'))
+    })
+  }
+
+  isSelected(id:number) {
+    return id == this.selectId
   }
 
 }
