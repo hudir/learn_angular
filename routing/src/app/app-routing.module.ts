@@ -4,12 +4,21 @@ import { DepartmentDetailComponent } from './department-detail/department-detail
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { DepartmentOverviewComponent } from './department-overview/department-overview.component';
+import { DepartmentContactComponent } from './department-contact/department-contact.component';
 
 const routes: Routes = [
   {path: "", redirectTo: '/department-list', pathMatch: 'full'},
   // {path: "", redirectTo: '/departments', pathMatch: 'prefix'},
   {path: "department-list", component: DepartmentListComponent},
-  {path: "department-list/:id", component:DepartmentDetailComponent},
+  {
+    path: "department-list/:id", 
+    component:DepartmentDetailComponent,
+    children: [
+      { path: 'overview', component: DepartmentOverviewComponent },
+      { path: 'contact', component: DepartmentContactComponent }
+    ]
+  },
   {path: "employees", component: EmployeeListComponent},
   {path: "**", component: PageNotFoundComponent} // should always be the last
 ];
@@ -20,4 +29,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 
-export const routingComponent = [DepartmentListComponent, EmployeeListComponent,PageNotFoundComponent, DepartmentDetailComponent]
+export const routingComponent = [DepartmentListComponent, EmployeeListComponent,PageNotFoundComponent, DepartmentDetailComponent,DepartmentOverviewComponent,DepartmentContactComponent]
